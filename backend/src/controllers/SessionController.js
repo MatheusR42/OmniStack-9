@@ -5,8 +5,8 @@ module.exports = {
     async store(req, res) {
         const { email } = req.body;
         let user = await User.find({ email })
-        
-        if (!user) {
+
+        if (!user || !user.length) {
             user = await User.create({ email });
         }
 
