@@ -28,3 +28,30 @@
     color: #999;
     font-size: 15px;
 }
+
+.notifications {
+    list-style: none;
+    margin-bottom: 15px;
+}
+
+.notifications li {
+    font-size: 16px;
+    line-height: 24px;
+}
+
+.notifications button {
+    border: none;
+    margin-right: 10px;
+    font-weight: bold;
+    margin-top: 10px;
+    cursor: pointer;
+    background: none;
+}
+
+button.accept {
+    color: #84c870
+}
+
+button.reject {
+    color: #E55E5E
+}
