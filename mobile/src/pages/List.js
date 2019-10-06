@@ -1,9 +1,10 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
     AsyncStorage,
     SafeAreaView,
     StyleSheet,
-    ScrollView
+    ScrollView,
+    Image
 } from "react-native";
 
 import SpotList from "../components/SpotList";
@@ -39,6 +40,6 @@ const styles = StyleSheet.create({
         height: 32,
         resizeMode: "contain",
         alignSelf: "center",
-        marginTop: 10
+        marginTop: 30
     }
 });

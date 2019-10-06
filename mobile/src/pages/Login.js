@@ -17,12 +17,11 @@ export default function Login({ navigation }) {
     }, []);
 
     async function handleSubmit() {
-        const res = await api.post('/session', {
+        const res = await api.post('/sessions', {
             email
         });
 
         const { _id } = res.data;
-        console.log(_id);
         
         await AsyncStorage.setItem('user', _id);
         await AsyncStorage.setItem('techs', techs);
@@ -30,7 +29,7 @@ export default function Login({ navigation }) {
     }
 
     return (
-        <KeyboardAvoidingView enabled={Platform.OS === 'ios'} behavior="padding">
+        <KeyboardAvoidingView behavior="padding" style={styles.container}>
             <Image source={logo} />
             <View style={styles.form}>
                 <Text style={styles.label}>

@@ -5,7 +5,8 @@ import {
     StyleSheet,
     Text,
     FlatList,
-    TouchableOpacity
+    TouchableOpacity,
+    Image
 } from "react-native";
 
 import api from "../services/api";
@@ -15,18 +16,18 @@ function SpotList({ tech, navigation }) {
 
     useEffect(() => {
         async function loadSpots() {
-            const res = await api.get("/spot", {
-                param: { tech }
+            const res = await api.get("/spots", {
+                params: { tech }
             });
 
-            console.log(res.data);
+            setSpots(res.data)
         }
 
         loadSpots();
     }, []);
 
     function handleNavigate(id) {
-        navigation.naviate('Book', { id })
+        navigation.navigate('Book', { id })
     }
 
     return (
@@ -46,7 +47,7 @@ function SpotList({ tech, navigation }) {
                         <Image
                             style={styles.thumbnail}
                             source={{
-                                uri: item.thumbnail_url
+                                uri: api.defaults.baseURL + item.thumbnail_url
                             }}
                         />
                         <Text style={styles.company}>{item.company}</Text>
@@ -88,7 +89,7 @@ const styles = StyleSheet.create({
         marginRight: 15
     },
     thumbnail: {
-        width: 120,
+        width: 200,
         height: 120,
         resizeMode: "cover",
         borderRadius: 2

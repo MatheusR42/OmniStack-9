@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link } from 'react-router-dom';
+
 import api from "../../services/api";
 
 import './styles.css';
@@ -25,7 +26,7 @@ export default function Dashboard() {
                         <li key={_id}>
                             <header
                                 style={{
-                                    backgroundImage: `url(${thumbnail_url})`
+                                    backgroundImage: `url(${api.defaults.baseURL + thumbnail_url})`
                                 }}
                             />
                             <strong>{company}</strong>
